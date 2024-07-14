@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Schedule Management System</h1>
+        <div id="loginRegisterForm">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab">Register</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="login" role="tabpanel">
+                    <form id="loginForm" class="mt-3">
+                        <div class="form-group">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" class="form-control" id="loginUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="register" role="tabpanel">
+                    <form id="registerForm" class="mt-3">
+                        <div class="form-group">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" class="form-control" id="registerUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="scheduleManagement" style="display: none;">
+            <h2 class="mb-3">Welcome, <span id="username"></span>!</h2>
+            <button id="logoutBtn" class="btn btn-danger mb-3">Logout</button>
+            <h3>Add New Schedule</h3>
+            <form id="addScheduleForm">
+                <div class="form-group">
+                    <label for="startTime">Start Time (YYYY-MM-DD HH:mm)</label>
+                    <input type="text" class="form-control" id="startTime" placeholder="e.g. 2024-07-13 14:30" required>
+                </div>
+                <div class="form-group">
+                    <label for="endTime">End Time (YYYY-MM-DD HH:mm)</label>
+                    <input type="text" class="form-control" id="endTime" placeholder="e.g. 2024-07-13 16:00" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Schedule</button>
+            </form>
+            <h3 class="mt-4">Query Schedules</h3>
+            <form id="queryScheduleForm">
+                <div class="form-group">
+                    <label for="startDate">Start Date (YYYY-MM-DD)</label>
+                    <input type="text" class="form-control" id="startDate" placeholder="e.g. 2024-07-13" required>
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date (YYYY-MM-DD)</label>
+                    <input type="text" class="form-control" id="endDate" placeholder="e.g. 2024-07-20" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Query Schedules</button>
+            </form>
+            <div id="scheduleResults" class="mt-4"></div>
+            <button id="clearSchedulesBtn" class="btn btn-warning mt-3">Clear All Schedules</button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
